@@ -13,7 +13,7 @@ export class EventService {
     );
   }
 
-  getOne(id: number): Observable<Event> {
+  getOne(id: string): Observable<Event> {
     return this.http.get<Event>(`/api/events/${id}`);
   }
 }

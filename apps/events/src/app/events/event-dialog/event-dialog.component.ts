@@ -5,15 +5,16 @@ import { Observable } from 'rxjs';
 import { EventService } from '../../services/event.service';
 
 @Component({
-  selector: 'app-event-page',
-  templateUrl: './event-page.component.html',
-  styleUrls: ['./event-page.component.scss'],
+  selector: 'app-event-dialog',
+  templateUrl: './event-dialog.component.html',
+  styleUrls: ['./event-dialog.component.scss'],
 })
-export class EventPageComponent implements OnInit {
+export class EventDialogComponent implements OnInit {
   event$ = new Observable<Event>();
+
   constructor(
     private eventService: EventService,
-    public dialogRef: MatDialogRef<EventPageComponent>,
+    public dialogRef: MatDialogRef<EventDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { eventId: string }
   ) {}
 

@@ -6,11 +6,21 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+
 import { EventPageComponent } from './event-page/event-page.component';
 import { EventService } from '../services/event.service';
+import { EventViewDirective } from './event-view.directive';
+import { EventDialogComponent } from './event-dialog/event-dialog.component';
 
 @NgModule({
-  declarations: [EventsComponent, EventPageComponent],
+  declarations: [
+    EventsComponent,
+    EventPageComponent,
+    EventViewDirective,
+    EventDialogComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild([
@@ -20,6 +30,8 @@ import { EventService } from '../services/event.service';
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
+    MatDialogModule,
+    MatButtonModule,
   ],
   providers: [EventService],
 })
