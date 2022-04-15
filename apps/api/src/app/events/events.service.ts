@@ -1,7 +1,6 @@
+import { CreateEventDto, UpdateEventDto } from '@coding-challenge/entities';
 import { Injectable } from '@nestjs/common';
 import { Connection } from 'typeorm';
-import { CreateEventDto } from './dto/create-event.dto';
-import { UpdateEventDto } from './dto/update-event.dto';
 import { EventRepository } from './events.repository';
 
 @Injectable()
@@ -16,19 +15,22 @@ export class EventsService {
     return 'This action adds a new event';
   }
 
-  findAll() {
-    return this.eventRepository.find();
+  findAll(skip, take) {
+    return this.eventRepository.findAndCount({
+      skip,
+      take,
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} event`;
+  findOne(id: string) {
+    return this.eventRepository.findOneOrFail(id);
   }
 
-  update(id: number, updateEventDto: UpdateEventDto) {
+  update(id: string, updateEventDto: UpdateEventDto) {
     return `This action updates a #${id} event`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} event`;
   }
 }

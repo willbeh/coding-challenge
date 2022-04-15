@@ -3,6 +3,7 @@
   "projects": {
     "api": "apps/api",
     "api-interfaces": "libs/api-interfaces",
+    "entities": "libs/entities",
     "events": "apps/events",
     "events-e2e": "apps/events-e2e"
   }

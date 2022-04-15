@@ -6,9 +6,8 @@ import { EventsModule } from './events/events.module';
 
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
-import { User } from './entities/user.entity';
-import { Event } from './entities/event.entity';
 import { createTable1650004487316 } from './migrations/1650004487316-createTable';
+import { Event, User } from '@coding-challenge/entities';
 
 @Module({
   imports: [

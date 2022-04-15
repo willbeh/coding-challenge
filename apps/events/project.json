@@ -2,7 +2,7 @@
   "projectType": "application",
   "root": "apps/events",
   "sourceRoot": "apps/events/src",
-  "prefix": "coding-challenge",
+  "prefix": "app",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
