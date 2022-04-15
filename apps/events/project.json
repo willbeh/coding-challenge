@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/events",
         "index": "apps/events/src/index.html",
@@ -14,8 +16,14 @@
         "polyfills": "apps/events/src/polyfills.ts",
         "tsConfig": "apps/events/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/events/src/favicon.ico", "apps/events/src/assets"],
-        "styles": ["apps/events/src/styles.scss"],
+        "assets": [
+          "apps/events/src/favicon.ico",
+          "apps/events/src/assets"
+        ],
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+          "apps/events/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -83,7 +91,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/events"],
+      "outputs": [
+        "coverage/apps/events"
+      ],
       "options": {
         "jestConfig": "apps/events/jest.config.js",
         "passWithNoTests": true
