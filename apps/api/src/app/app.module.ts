@@ -8,6 +8,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 import { createTable1650004487316 } from './migrations/1650004487316-createTable';
 import { Event, User } from '@coding-challenge/entities';
+import { addAttandees1650034930867 } from './migrations/1650034930867-addAttandees';
 
 @Module({
   imports: [
@@ -20,7 +21,7 @@ import { Event, User } from '@coding-challenge/entities';
       name: 'default',
       entities: [User, Event],
       migrationsTableName: 'migrations',
-      migrations: [createTable1650004487316],
+      migrations: [createTable1650004487316, addAttandees1650034930867],
       migrationsRun: true,
     }),
   ],

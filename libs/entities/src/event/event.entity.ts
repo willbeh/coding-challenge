@@ -1,4 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  ManyToMany,
+  JoinTable,
+} from 'typeorm';
 import { User } from '../user/user.entity';
 
 @Entity('event')
@@ -17,6 +24,10 @@ export class Event {
 
   @Column()
   date: Date;
+
+  @ManyToMany(() => User)
+  @JoinTable()
+  attendees: User[];
 
   @ManyToOne(() => User)
   public organizer: User;

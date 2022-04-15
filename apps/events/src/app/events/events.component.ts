@@ -18,7 +18,14 @@ export class EventsComponent implements OnInit {
     take: this.pageSize,
   });
 
-  displayedColumns: string[] = ['name'];
+  displayedColumns: string[] = [
+    'name',
+    'isOutside',
+    'location',
+    'date',
+    'organizer',
+    'attendees',
+  ];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 

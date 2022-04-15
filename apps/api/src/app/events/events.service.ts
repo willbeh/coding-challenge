@@ -19,6 +19,7 @@ export class EventsService {
     return this.eventRepository.findAndCount({
       skip,
       take,
+      relations: ['organizer', 'attendees'],
     });
   }
 
