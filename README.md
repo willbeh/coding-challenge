@@ -35,4 +35,4 @@ Create json `npm run generateData`
 Import data into sqlite `npm run importData`
 This must be run after running the API which automatically run migration
 
-For large set of data should use a queue service to import data
+For large set of data may need to implement a queue service for data import
