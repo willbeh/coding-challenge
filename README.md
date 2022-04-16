@@ -14,12 +14,12 @@ Run frontend `ng serve`
 
 ## Backend API
 
-Test endpoints [Swagger](http://localhost:3333/swagger)
+Test endpoints [Backend API Swagger](http://localhost:3333/swagger)
 `http://localhost:3333/swagger`
 
 ## Frontend
 
-[Angular](http://localhost:4200)
+[Frontend site](http://localhost:4200)
 `http://localhost:4200`
 
 ## ERD
