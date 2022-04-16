@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import {
   CreateEventDto,
   Event,
+  EventData,
   UpdateEventDto,
 } from '@coding-challenge/entities';
 import { Observable } from 'rxjs';
@@ -15,22 +16,17 @@ export class EventService {
     skip: number,
     take: number,
     from?: Date,
-    to?: Date
+    until?: Date
   ): Observable<[Event[], number]> {
-    if (from) {
-      const num = from.getTime();
-      console.log('num', num, new Date(num));
-    }
-
     return this.http.get<[Event[], number]>(
       `/api/events?skip=${skip}&take=${take}${
         from ? `&from=${from.getTime()}` : ''
-      }${to ? `&to=${to.getTime()}` : ''}`
+      }${until ? `&until=${until.getTime()}` : ''}`
     );
   }
 
-  getOne(id: string): Observable<Event> {
-    return this.http.get<Event>(`/api/events/${id}`);
+  getOne(id: string): Observable<EventData> {
+    return this.http.get<EventData>(`/api/events/${id}`);
   }
 
   save(event: CreateEventDto) {

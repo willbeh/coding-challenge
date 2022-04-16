@@ -1,9 +1,45 @@
 <ng-container *ngIf="event$ | async as event">
   <h1 mat-dialog-title>{{ event.name }}</h1>
   <div mat-dialog-content>
-    {{ event | json }}
+    <table>
+      <tr>
+        <td>Name</td>
+        <td>{{ event.name }}</td>
+      </tr>
+      <tr>
+        <td>Date</td>
+        <td>{{ event.date | date: 'mediumDate' }}</td>
+      </tr>
+      <tr>
+        <td>Location</td>
+        <td>{{ event.location }}</td>
+      </tr>
+      <tr>
+        <td>Organizer</td>
+        <td>{{ event.organizer.name }}</td>
+      </tr>
+      <tr>
+        <td>Number of attendees</td>
+        <td>{{ event.attendees.length }}</td>
+      </tr>
+      <tr *ngIf="event.weather">
+        <td>Weather</td>
+        <td>
+          {{ event.weather.chanceOfRain }}% chance of rain
+          <div>{{ event.weather.temperatureInDegreesCelcius }} &#8451;</div>
+        </td>
+      </tr>
+      <tr *ngIf="event.visaRequirements">
+        <td>Visa Requirements</td>
+        <td>{{ event.visaRequirements }}</td>
+      </tr>
+      <tr *ngIf="event.proofOfVaccineRequired">
+        <td>Proof of Vaccine Required</td>
+        <td>{{ event.proofOfVaccineRequired ? 'Yes' : 'No' }}</td>
+      </tr>
+    </table>
   </div>
   <div mat-dialog-actions>
-    <button mat-button [mat-dialog-close] cdkFocusInitial>Ok</button>
+    <button mat-raised-button [mat-dialog-close] cdkFocusInitial>Close</button>
   </div>
 </ng-container>

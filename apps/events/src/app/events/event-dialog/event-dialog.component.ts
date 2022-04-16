@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Event } from '@coding-challenge/entities';
+import { EventData } from '@coding-challenge/entities';
 import { Observable } from 'rxjs';
 import { EventService } from '../../services/event.service';
 
@@ -10,7 +10,7 @@ import { EventService } from '../../services/event.service';
   styleUrls: ['./event-dialog.component.scss'],
 })
 export class EventDialogComponent implements OnInit {
-  event$ = new Observable<Event>();
+  event$ = new Observable<EventData>();
 
   constructor(
     private eventService: EventService,

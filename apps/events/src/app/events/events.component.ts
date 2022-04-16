@@ -92,8 +92,7 @@ export class EventsComponent implements OnInit {
     }
   }
 
-  filter(data: { until?: Date; from?: Date }) {
-    console.log(data);
+  filter(data: { from?: Date; until?: Date }) {
     this.from = data.from;
     this.until = data.until;
     this.params$.next({
