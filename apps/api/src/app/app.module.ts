@@ -1,7 +1,5 @@
 import { Module } from '@nestjs/common';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { EventsModule } from './events/events.module';
 
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -9,6 +7,7 @@ import { Connection } from 'typeorm';
 import { createTable1650004487316 } from './migrations/1650004487316-createTable';
 import { Event, User } from '@coding-challenge/entities';
 import { addAttandees1650034930867 } from './migrations/1650034930867-addAttandees';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -24,9 +23,10 @@ import { addAttandees1650034930867 } from './migrations/1650034930867-addAttande
       migrations: [createTable1650004487316, addAttandees1650034930867],
       migrationsRun: true,
     }),
+    UsersModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {
   constructor(private connection: Connection) {

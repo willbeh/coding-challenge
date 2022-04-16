@@ -4,25 +4,64 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
   Delete,
   Query,
+  Put,
 } from '@nestjs/common';
 import { EventsService } from './events.service';
+import { ApiTags, ApiQuery } from '@nestjs/swagger';
 
 @Controller('events')
+@ApiTags('Events')
 export class EventsController {
   constructor(private readonly eventsService: EventsService) {}
 
   @Post()
   create(@Body() createEventDto: CreateEventDto) {
-    return this.eventsService.create(createEventDto);
+    return this.eventsService
+      .create(createEventDto)
+      .then(() => true)
+      .catch((e) => e.message);
   }
 
+  @ApiQuery({
+    name: 'skip',
+    type: Number,
+    description: 'Number of rows to skip',
+    required: false,
+  })
+  @ApiQuery({
+    name: 'take',
+    type: Number,
+    description: 'Number of rows to show',
+    required: false,
+  })
+  @ApiQuery({
+    name: 'from',
+    type: Number,
+    description: 'From date in number',
+    required: false,
+  })
+  @ApiQuery({
+    name: 'to',
+    type: Number,
+    description: 'To date in number',
+    required: false,
+  })
   @Get()
-  findAll(@Query('skip') skip = 0, @Query('take') take = 3) {
-    return this.eventsService.findAll(skip, take);
+  findAll(
+    @Query('skip') skip = 0,
+    @Query('take') take = 3,
+    @Query('from') from?: number,
+    @Query('to') to?: number
+  ) {
+    return this.eventsService.findAll(
+      skip,
+      take,
+      from ? +from : undefined,
+      to ? +to : undefined
+    );
   }
 
   @Get(':id')
@@ -30,9 +69,12 @@ export class EventsController {
     return this.eventsService.findOne(id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(@Param('id') id: string, @Body() updateEventDto: UpdateEventDto) {
-    return this.eventsService.update(id, updateEventDto);
+    return this.eventsService
+      .update(id, updateEventDto)
+      .then(() => true)
+      .catch((e) => e);
   }
 
   @Delete(':id')
