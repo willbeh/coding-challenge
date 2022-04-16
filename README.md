@@ -8,6 +8,7 @@ First setup `npm i`
 
 Run api `WEATHER_API_KEY=<key> ng serve api`
 Will need api key to get weather data. Sign up free account at [Weather API](https://www.weatherapi.com) and generate a key
+If don't need weather can run `ng serve api`
 
 Run frontend `ng serve`
 
