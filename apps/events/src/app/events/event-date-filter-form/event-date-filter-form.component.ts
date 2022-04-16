@@ -9,7 +9,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class EventDateFilterFormComponent {
   form = new FormGroup({
     from: new FormControl(null),
-    to: new FormControl(null),
+    until: new FormControl(null),
   });
 
   @Output() filter = new EventEmitter();

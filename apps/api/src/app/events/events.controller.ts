@@ -44,9 +44,9 @@ export class EventsController {
     required: false,
   })
   @ApiQuery({
-    name: 'to',
+    name: 'until',
     type: Number,
-    description: 'To date in number',
+    description: 'until date in number',
     required: false,
   })
   @Get()
@@ -54,13 +54,13 @@ export class EventsController {
     @Query('skip') skip = 0,
     @Query('take') take = 3,
     @Query('from') from?: number,
-    @Query('to') to?: number
+    @Query('until') until?: number
   ) {
     return this.eventsService.findAll(
       skip,
       take,
       from ? +from : undefined,
-      to ? +to : undefined
+      until ? +until : undefined
     );
   }
 

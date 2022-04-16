@@ -18,6 +18,10 @@ Test endpoints [Swagger](http://localhost:3333/swagger)
 
 [Angular](http://localhost:4200)
 
+## ERD
+
+![Database](./ERD.png)
+
 ## Pre setup
 
 This repo already setup the sample data and imported into repo

@@ -14,14 +14,14 @@ export class EventsComponent implements OnInit {
   events$ = new Observable<[Event[], number]>();
   pageSize = 3;
   from?: Date;
-  to?: Date;
+  until?: Date;
 
   refresh$ = new BehaviorSubject<boolean>(true);
   params$ = new BehaviorSubject<{
     skip: number;
     take: number;
     from?: Date;
-    to?: Date;
+    until?: Date;
   }>({
     skip: 0,
     take: this.pageSize,
@@ -56,7 +56,7 @@ export class EventsComponent implements OnInit {
           params.skip,
           params.take,
           params.from,
-          params.to
+          params.until
         )
       )
     );
@@ -68,7 +68,7 @@ export class EventsComponent implements OnInit {
       skip: page.pageIndex * page.pageSize,
       take: page.pageSize,
       from: this.from,
-      to: this.to,
+      until: this.until,
     });
   }
 
@@ -92,15 +92,15 @@ export class EventsComponent implements OnInit {
     }
   }
 
-  filter(data: { to?: Date; from?: Date }) {
+  filter(data: { until?: Date; from?: Date }) {
     console.log(data);
     this.from = data.from;
-    this.to = data.to;
+    this.until = data.until;
     this.params$.next({
       skip: 0,
       take: this.pageSize,
       from: data.from,
-      to: data.to,
+      until: data.until,
     });
   }
 }

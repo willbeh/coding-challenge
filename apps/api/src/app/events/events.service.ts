@@ -25,7 +25,7 @@ export class EventsService {
     });
   }
 
-  findAll(skip: number, take: number, from?: number, to?: number) {
+  findAll(skip: number, take: number, from?: number, until?: number) {
     const today = new Date();
     const tomorrow = new Date();
 
@@ -33,7 +33,7 @@ export class EventsService {
       where: {
         date: Between(
           from ?? today.setFullYear(today.getFullYear() - 1),
-          to ?? tomorrow.setFullYear(tomorrow.getFullYear() + 1)
+          until ?? tomorrow.setFullYear(tomorrow.getFullYear() + 1)
         ),
       },
       skip,
