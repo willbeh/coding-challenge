@@ -6,7 +6,8 @@ This project was generated using [Nx](https://nx.dev).
 
 First setup `npm i`
 
-Run api `ng serve api`
+Run api `WEATHER_API_KEY=<key> ng serve api`
+Will need api key to get weather data. Sign up free account at [Weather API](https://www.weatherapi.com) and generate a key
 
 Run frontend `ng serve`
 
